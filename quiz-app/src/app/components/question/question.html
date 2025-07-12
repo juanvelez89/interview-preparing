@@ -1,0 +1,16 @@
+<div *ngIf="isLoading">
+  <p>Cargando preguntas...</p>
+</div>
+
+<div *ngIf="!isLoading && questions.length > 0">
+  <h3>Seleccione la respuesta correcta:</h3>
+  <p>{{ questions[currentIndex].question }}</p>
+
+  <div class="options" *ngFor="let option of questions[currentIndex].options">
+    <button class="option-button" (click)="selectAnswer(option)">
+      {{ option }}
+    </button>
+  </div>
+
+  <p>Pregunta {{ currentIndex + 1 }} de {{ questions.length }}</p>
+</div>

@@ -1,0 +1,15 @@
+<h2>Resultados del Quiz</h2>
+<p>Puntaje: {{ score }} de {{ questions.length }}</p>
+
+<div *ngFor="let question of questions; let i = index">
+  <p>
+    <strong>Pregunta:</strong> {{ question.question }} <br>
+    <strong>Tu respuesta:</strong> {{ selectedAnswers[i] }} <br>
+    <strong>Respuesta correcta:</strong> {{ question.answer }} <br>
+    <span *ngIf="question.answer === selectedAnswers[i]" style="color: green">✅ Correcto</span>
+    <span *ngIf="question.answer !== selectedAnswers[i]" style="color: red">❌ Incorrecto</span>
+  </p>
+  <hr>
+</div>
+
+<button (click)="router.navigate(['/'])">Volver a intentar</button>
